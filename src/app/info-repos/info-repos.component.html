@@ -1,1 +1,29 @@
-<p>info-repos works!</p>
+<div class="container cstom-container">
+    <div>
+        <h3 class="mb-3 text-center">Información de la Cuenta GitHub</h3>
+        <div>
+            <a class="btn btn-info" [routerLink]="['/list-repos']"> Lista de repos </a>
+            <a class="btn btn-primary" [routerLink]="['/contact-us']"> Contáctanos </a>
+        </div>
+        <div class="col-mb-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Cuenta</th>
+                        <th scope="col">URL del repositorio</th>
+                        <th scope="col">Avatar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                            <td>{{InfoRepos.login}}</td>
+                            <td><a href="{{InfoRepos.html_url}}">{{InfoRepos.html_url}}</a></td>
+                            <td><img src="{{InfoRepos.avatar_url}}" width="200" height="200" class="center-block"></td>
+                            
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
