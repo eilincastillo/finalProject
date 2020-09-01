@@ -12,7 +12,8 @@ export class ApiService {
 
   apiURL = 'https://api.github.com/users';
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json',
+    'Authorization': 'f5c565982ad8a770ecd9ec3f7a13f158139a6ac1'})
   }
 
   constructor(private http: HttpClient) { }
@@ -30,7 +31,7 @@ export class ApiService {
 
   //GET repo information
   getInfoRepo(): Observable<InfoRepos> {
-    return this.http.get<InfoRepos>(this.apiURL + '/eilincastillo')
+    return this.http.get<InfoRepos>(this.apiURL + '/eilincastillo', this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -39,7 +40,7 @@ export class ApiService {
 
     //GET repos list
     getListRepos(): Observable<Repo[]> {
-      return this.http.get<Repo[]>(this.apiURL + '/eilincastillo/repos')
+      return this.http.get<Repo[]>(this.apiURL + '/eilincastillo/repos', this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
