@@ -19,8 +19,6 @@ export class InfoReposComponent implements OnInit {
   getInfo() {
     return this.api.getInfoRepo().subscribe((data) => {
       this.InfoRepos = data;
-      console.log('data');
-      console.log(this.InfoRepos.login);
     });
   }
 

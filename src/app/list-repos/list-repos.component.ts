@@ -19,8 +19,6 @@ export class ListReposComponent implements OnInit {
   getListRepos() {
     return this.api.getListRepos().subscribe((data) => {
       this.ReposList = data;
-      console.log('data');
-      //console.log(this.ReposList.login);
     });
   }
 
