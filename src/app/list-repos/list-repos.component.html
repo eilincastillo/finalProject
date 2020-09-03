@@ -1,9 +1,10 @@
-<div class="container custom-container">
+<div class="d-block">
     <div>
-        <h3 class="mb-3 text-center">Lista de Repositorios</h3>
+        <app-header></app-header>  
+    </div>
+    <div class="container custom-container" style="padding-bottom:50px;">
         <div>
-            <a class="btn btn-secondary" [routerLink]="['/info-repos']"> Informació del Repositorio </a>
-            <a class="btn btn-primary" [routerLink]="['/contact-us']"> Contáctanos </a>
+           <h3 class="mb-3 text-center">Lista de Repositorios</h3> 
         </div>
         <div class="col-mb-12">
             <table class="table table-bordered">
@@ -22,11 +23,16 @@
                             <td>{{repo.name}}</td>
                             <td>{{repo.description}}</td>
                             <td>{{repo.language}}</td>
-                            <td><a href="{{repo.html_url}}">{{repo.html_url}}</a></td>
+                            <td><a href="{{repo.html_url}}" target="_blank">{{repo.html_url}}</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+    </div>
+    <div style="position: relative;">
+        <app-footer></app-footer>  
     </div>
 </div>
+
 
