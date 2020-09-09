@@ -7,15 +7,18 @@
                 <div>
                     <h3 class="mb-3 text-center">Contáctanos</h3>
                 </div>
-                <div class="form-group">
-                    <input type="text" [(ngModel)]= "contacto.name" class="form-control" placeholder="Nombre">
-                </div>
-                <div class="form-group">
-                    <input type="text" [(ngModel)]= "contacto.email" class="form-control" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-success btn-lg btn-block" (click)="enviar()">Enviar</button>
-                </div>
+                <form [formGroup]="formGroup">
+                        <label for="name">* Name</label>
+                        <input name="name"
+                              formControlName="name"
+                              type="text" placeholder="Nombre" class="form-control" style="margin-bottom: .5rem;"/>
+                        <label for="email">* E-mail</label>
+                        <input name="email"
+                              formControlName="email"
+                              type="email" placeholder="Email" class="form-control" style="margin-bottom: .5rem;"/>
+
+                        <button class="btn btn-success btn-lg btn-block" (click)="enviar()" [disabled]="formGroup.invalid" style="margin-top: 2rem;">Enviar! </button>
+                      </form>
         </div>
         <div >
             <app-footer></app-footer>  

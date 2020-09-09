@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,17 +9,27 @@ import { Router } from '@angular/router';
 })
 export class ContactUsComponent implements OnInit {
 
-  @Input() contacto = {name: '', email: ''};
+  public formGroup: FormGroup;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.buildForm();
   }
 
   enviar() {
-    console.log(this.contacto);
+    const user = this.formGroup.value;
+    console.log(user);
     window.alert('Te contactaremos en la brevedad!');
     this.router.navigate(['/info-repos']);
+  }
+
+  private buildForm(){
+
+    this.formGroup = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+    });
   }
 
 }
