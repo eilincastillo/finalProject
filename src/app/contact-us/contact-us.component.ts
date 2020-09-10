@@ -19,7 +19,7 @@ export class ContactUsComponent implements OnInit {
 
   enviar() {
     const user = this.formGroup.value;
-    console.log(user);
+    //console.log(user);
     window.alert('Te contactaremos en la brevedad!');
     this.router.navigate(['/info-repos']);
   }
